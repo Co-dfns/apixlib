@@ -1,10 +1,15 @@
 :Namespace ffdict
 
+⍝ load: ffimg ← load filename
+⍝  Return farbfeld image from filename
 load←{t←⍵ ⎕NTIE 0 64 ⋄ w h←2⊥⍉2 32⍴⎕NREAD t 11 8 8
   img⊣⎕NUNTIE t⊣img←h w 4⍴2⊥⍉(×/w h 4) 16⍴⎕NREAD t 11(×/w h 8) 16}
 
+⍝ store: ffimg store filename
+⍝  Saves a farbfeld image to the given filename, replacing it if necessary
 magic←,⍉(8⍴2)⊤⎕UCS'farbfeld'
 opentie←{22::⍵ ⎕NCREATE 0 ⋄ ⍵ ⎕NTIE 0 33}
-store←{t←opentie ⍵ ⋄ (magic,(,⍉(32⍴2)⊤⌽2↑⍴⍺),,⍉(16⍴2)⊤,⍺)⎕NREPLACE t 0 11 ⋄ ⎕NUNTIE t}
+store←{t←opentie ⍵ ⋄ _←magic ⎕NREPLACE t 0 11 ⋄ _←(⍉(32⍴2)⊤⌽2↑⍴⍺)⎕NREPLACE t 8 11
+  _←(⍉(16⍴2)⊤,⍺)⎕NREPLACE t 16 11 ⋄ ⎕NUNTIE t}
 
 :EndNamespace
