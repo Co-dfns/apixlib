@@ -17,7 +17,7 @@ store←{t←opentie ⍵ ⋄ _←magic ⎕NREPLACE t 0 11 ⋄ _←(⍉(32⍴2)�
 fliph←{⊖⍵}
 
 ⍝ flipv: ffimg ← flipv ffimg
-⍝  Flip an image laong its vertical axis
+⍝  Flip an image along its vertical axis
 flipv←{1 0 2⍉⊖1 0 2⍉⍵}
 
 ⍝ rotcw90: ffimg ← rotcw90 ffimg
