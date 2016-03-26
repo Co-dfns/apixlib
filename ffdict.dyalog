@@ -12,4 +12,24 @@ opentie←{22::⍵ ⎕NCREATE 0 ⋄ ⍵ ⎕NTIE 0 33}
 store←{t←opentie ⍵ ⋄ _←magic ⎕NREPLACE t 0 11 ⋄ _←(⍉(32⍴2)⊤⌽2↑⍴⍺)⎕NREPLACE t 8 11
   _←(⍉(16⍴2)⊤,⍺)⎕NREPLACE t 16 11 ⋄ ⎕NUNTIE t}
 
+⍝ fliph: ffimg ← fliph ffimg
+⍝  Flip an image along its horizontal axis
+fliph←{⊖⍵}
+
+⍝ flipv: ffimg ← flipv ffimg
+⍝  Flip an image laong its vertical axis
+flipv←{1 0 2⍉⊖1 0 2⍉⍵}
+
+⍝ rotcw90: ffimg ← rotcw90 ffimg
+⍝  Rotate image 90 degrees clockwise
+rotcw90←{1 0 2⍉⊖⍵}
+
+⍝ rotccw90: ffimg ← rotccw90 ffimg
+⍝  Rotate image 90 degrees counter-clockwise
+rotccw90←{⊖1 0 2⍉⍵}
+
+⍝ rot180: ffimg ← rot180 ffimg
+⍝  Rotate image 180 degrees
+rot180←{1 0 2⍉⊖1 0 2⍉⊖⍵}
+
 :EndNamespace
