@@ -16,6 +16,8 @@
 
 :Namespace ffdict
 
+⎕IO←0
+
 ⍝ load: ffimg ← load filename
 ⍝  Return farbfeld image from filename
 load←{t←⍵ ⎕NTIE 0 64 ⋄ w h←2⊥⍉2 32⍴⎕NREAD t 11 8 8
@@ -34,7 +36,7 @@ fliph←{⊖⍵}
 
 ⍝ flipv: ffimg ← flipv ffimg
 ⍝  Flip an image along its vertical axis
-flipv←{1 0 2⍉⊖1 0 2⍉⍵}
+flipv←{⌽[1]⍵}
 
 ⍝ rotcw90: ffimg ← rotcw90 ffimg
 ⍝  Rotate image 90 degrees clockwise
