@@ -63,4 +63,8 @@ inv←{|⍵-⍤1⍨0,⍨3⍴65535}
 ⍝  Set the opacity of an image
 opacity←{(3↑[2]⍵),0⌈65535⌊⌊65535×⍺}
 
+⍝ blur: ffimg ← blur img
+⍝  Gaussian blur an image
+blur←{⍵[;;3],⍨0⌈⌊⊃+/,(0.0625×2*+/¨0=∘.,⍨¯1+⍳3)×¯1 0 1∘.⊖¯1 0 1⊖⍤2¨⊂3↑⍤1⊢⍵}
+
 :EndNamespace
