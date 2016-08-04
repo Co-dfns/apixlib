@@ -30,6 +30,11 @@ opentie←{22::⍵ ⎕NCREATE 0 ⋄ ⍵ ⎕NTIE 0 33}
 store←{t←opentie ⍵ ⋄ _←magic ⎕NREPLACE t 0 11 ⋄ _←(⍉(32⍴2)⊤⌽2↑⍴⍺)⎕NREPLACE t 8 11
   _←(⍉(16⍴2)⊤,⍺)⎕NREPLACE t 16 11 ⋄ ⎕NUNTIE t}
 
+⍝ view: [tmpname] view ffimg
+⍝  View an image using [tmpname] as a temporary file
+view←{⍺←'./.ffdict.ff' ⋄ _←⍵ store ⍺
+  ⎕SH'lel -a -t "ffdict Preview" ''',⍺,''''}
+
 ⍝ fliph: ffimg ← fliph ffimg
 ⍝  Flip an image along its horizontal axis
 fliph←{⊖⍵}
@@ -49,5 +54,13 @@ rotccw90←{⊖1 0 2⍉⍵}
 ⍝ rot180: ffimg ← rot180 ffimg
 ⍝  Rotate image 180 degrees
 rot180←{1 0 2⍉⊖1 0 2⍉⊖⍵}
+
+⍝ inv: ffimg ← inv ffimg
+⍝  Invert image
+inv←{|⍵-⍤1⍨0,⍨3⍴65535}
+
+⍝ opacity: ffimg ← val opacity img
+⍝  Set the opacity of an image
+opacity←{(3↑[2]⍵),0⌈65535⌊⌊65535×⍺}
 
 :EndNamespace
