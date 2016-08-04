@@ -65,6 +65,14 @@ opacity←{(3↑[2]⍵),0⌈65535⌊⌊65535×⍺}
 
 ⍝ blur: ffimg ← blur img
 ⍝  Gaussian blur an image
-blur←{⍵[;;3],⍨0⌈⌊⊃+/,(0.0625×2*+/¨0=∘.,⍨¯1+⍳3)×¯1 0 1∘.⊖¯1 0 1⊖⍤2¨⊂3↑⍤1⊢⍵}
+blur←{⍵[;;3],⍨⌊⊃+/,(0.0625×2*+/¨0=∘.,⍨¯1+⍳3)×¯1 0 1∘.⊖¯1 0 1⊖⍤2¨⊂3↑⍤1⊢⍵}
+
+⍝ sharpen: ffimg ← blur img
+⍝  Gaussian sharpen an image
+sharpen←{⍵[;;3],⍨⌊⊃+/,(3 3⍴0 ¯1 0 ¯1 5 ¯1 0 ¯1 0)×¯1 0 1∘.⊖¯1 0 1⊖⍤2¨⊂3↑⍤1⊢⍵}
+
+⍝ back: ffimg ← R G B back img
+⍝  Replace alpha channel with background color
+back←{65535,⍨⌊((1-a)∘.×⍺)+(a←⍵[;;3]÷65535)×⍤0 1⊢3↑⍤1⊢⍵}
 
 :EndNamespace
