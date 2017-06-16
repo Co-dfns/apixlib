@@ -1,5 +1,5 @@
-⍝ Farbfeld Dictionary: Image Manipulation for Farbfeld
-⍝ Copyright (C) 2016 Aaron W. Hsu <arcfide@sacrideo.us>
+﻿⍝ Image Dictionary: Image Manipulation for Co-dfns
+⍝ Copyright (C) 2017 Aaron W. Hsu <arcfide@sacrideo.us>
 ⍝ 
 ⍝ This program is free software: you can redistribute it and/or modify
 ⍝ it under the terms of the GNU Affero General Public License as published by
@@ -14,7 +14,7 @@
 ⍝ You should have received a copy of the GNU Affero General Public License
 ⍝ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-:Namespace ffdict
+:Namespace apixl
 
 ⎕IO←0
 
